@@ -1,5 +1,5 @@
-initial_balance = 100
-history = [100]
+initial_balance = File.read("/home/david/Desktop/Ruby/Programs/test2.txt").to_i
+history = [0]
 
 
 loop do
@@ -22,7 +22,7 @@ loop do
       initial_balance = initial_balance + deposit_money
       history << initial_balance
       puts "Your balance is $#{initial_balance}"
-      
+      File.write("/home/david/Desktop/Ruby/Programs/test2.txt", "#{initial_balance}")
       end
 
   elsif selection == 2
@@ -33,8 +33,8 @@ loop do
       elsif withdraw_money <= initial_balance
       initial_balance = initial_balance - withdraw_money
       history << initial_balance
-      puts history
       puts "Your balance is $#{initial_balance}"
+      File.write("/home/david/Desktop/Ruby/Programs/test2.txt", "#{initial_balance}")
       else
       puts "Withdraw amount is higher than your balance"
       end
